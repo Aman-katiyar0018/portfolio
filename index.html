@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Katiyar | MCA Portfolio & Software Development Intern</title>
+    
+    <!-- Meta SEO & Social Sharing -->
+    <meta name="description" content="Portfolio of Aman Katiyar - Software Development Intern at GHAckk Technology and MCA student at PSIT Kanpur (completing June 2026). Hands-on in Python, APIs, AI tools, AWS, and Docker.">
+    <meta name="keywords" content="Aman Katiyar, GHAckk Technology, Software Development Intern, MCA Student, PSIT Kanpur, June 2026, Python, FastAPI, Docker, AWS, Java, Portfolio">
+    <meta name="author" content="Aman Katiyar">
+    
+    <!-- OpenGraph / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aman Katiyar | Software Development Intern & MCA Student">
+    <meta property="og:description" content="Explore my internship experience at GHAckk Technology, verified cloud & software projects, and official certifications.">
+    <meta property="og:url" content="https://github.com/Aman-katiyar0018">
+
+    <!-- Google Fonts: Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="relative selection:bg-cyan-500 selection:text-white">
+
+    <!-- Interactive Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Ambient Glowing Light Orbs -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Brand / Website Name Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">
+                        AK
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-slate-100 font-extrabold text-base tracking-tight group-hover:text-cyan-400 transition">
+                            Aman Katiyar
+                        </span>
+                        <span class="text-[11px] font-mono text-cyan-400">Intern @ GHAckk Tech • MCA '26</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+                    <a href="#about" class="nav-link hover:text-slate-100">About</a>
+                    <a href="#experience" class="nav-link hover:text-slate-100">Experience</a>
+                    <a href="#skills" class="nav-link hover:text-slate-100">Skills</a>
+                    <a href="#projects" class="nav-link hover:text-slate-100">Projects</a>
+                    <a href="#certificates" class="nav-link hover:text-slate-100">Certificates</a>
+                    <a href="#education" class="nav-link hover:text-slate-100">Education</a>
+                    <a href="#coding" class="nav-link hover:text-slate-100">Coding</a>
+                    <a href="#contact" class="nav-link hover:text-slate-100">Contact</a>
+                </nav>
+
+                <!-- Actions: Theme Switcher & Resume Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button id="theme-toggle" aria-label="Toggle Theme" 
+                            class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-300 hover:text-cyan-400 transition">
+                        <i data-lucide="sun" class="theme-icon-sun w-5 h-5"></i>
+                        <i data-lucide="moon" class="theme-icon-moon w-5 h-5 hidden"></i>
+                    </button>
+
+                    <a href="assets/Aman_Katiyar_Resume.pdf" download="Aman_Katiyar_Resume.pdf" target="_blank"
+                       class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-cyan-500/20 transition hover:scale-[1.02] active:scale-[0.98]">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex items-center gap-2 lg:hidden">
+                    <button id="theme-toggle-mobile" aria-label="Toggle Theme" 
+                            class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300">
+                        <i data-lucide="sun" class="theme-icon-sun w-4 h-4"></i>
+                        <i data-lucide="moon" class="theme-icon-moon w-4 h-4 hidden"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-btn" aria-label="Open Navigation Menu"
+                            class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-white">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">About</a>
+            <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Experience</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Skills</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Projects</a>
+            <a href="#certificates" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Certificates</a>
+            <a href="#education" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Education</a>
+            <a href="#coding" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Coding Profiles</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 text-sm font-medium">Contact</a>
+            
+            <div class="pt-2">
+                <a href="assets/Aman_Katiyar_Resume.pdf" download="Aman_Katiyar_Resume.pdf" target="_blank"
+                   class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs font-semibold shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Download Resume PDF</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 pt-20">
+
+        <!-- =================================================================
+             HERO SECTION
+             ================================================================= -->
+        <section id="hero" class="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-emerald-500/30 text-emerald-400 text-xs font-medium mb-8 pulse-glow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Software Dev Intern @ GHAckk Tech • MCA Completing June 2026</span>
+                </div>
+
+                <!-- Main Greeting & Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-100 tracking-tight leading-[1.1] mb-6">
+                    Hi, I'm <span class="text-gradient-cyan">Aman Katiyar</span>
+                </h1>
+
+                <!-- Dynamic Typed Subheading -->
+                <div class="text-xl sm:text-2xl lg:text-3xl font-mono font-medium text-slate-300 h-10 mb-6 flex items-center justify-center">
+                    <span id="typed-text" class="text-cyan-400"></span><span class="cursor-blink"></span>
+                </div>
+
+                <!-- Bio Summary -->
+                <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed mb-10 font-normal">
+                    Software Development Intern at <strong class="text-slate-100 font-semibold">GHAckk Technology</strong> and 
+                    MCA candidate at <strong class="text-slate-100 font-semibold">PSIT Kanpur</strong> (completing in <strong class="text-cyan-300 font-semibold">June 2026</strong>).
+                    Experienced in <span class="text-cyan-300 font-medium">Python, APIs, AI-assisted development tools</span>, 
+                    <span class="text-cyan-300 font-medium">Dockerized AWS Deployments</span>, and Object-Oriented Software.
+                </p>
+
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+                    <a href="#experience" 
+                       class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-xl shadow-cyan-500/25 transition hover:scale-[1.02] active:scale-[0.98]">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                        <span>View Internship</span>
+                    </a>
+
+                    <a href="#projects" 
+                       class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-sm border-slate-700 hover:border-cyan-500/50 transition hover:scale-[1.02] active:scale-[0.98]">
+                        <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
+                        <span>Projects</span>
+                    </a>
+
+                    <a href="assets/Aman_Katiyar_Resume.pdf" download="Aman_Katiyar_Resume.pdf" target="_blank"
+                       class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-sm border-slate-700 hover:border-cyan-500/50 transition hover:scale-[1.02] active:scale-[0.98]">
+                        <i data-lucide="file-down" class="w-4 h-4 text-cyan-400"></i>
+                        <span>Resume</span>
+                    </a>
+
+                    <a href="#contact" 
+                       class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-slate-300 hover:text-cyan-400 text-sm font-semibold transition">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
+
+                <!-- Social Links Bar with Guaranteed High-Visibility SVGs -->
+                <div class="flex items-center justify-center gap-4 mb-16">
+                    <!-- GitHub -->
+                    <a href="https://github.com/Aman-katiyar0018" target="_blank" rel="noopener noreferrer" 
+                       aria-label="GitHub Profile"
+                       class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-slate-200 hover:text-white hover:border-cyan-400 transition hover:-translate-y-1 shadow-md" title="GitHub: Aman-katiyar0018">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/aman-katiyar-1a2740329" target="_blank" rel="noopener noreferrer" 
+                       aria-label="LinkedIn Profile"
+                       class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-[#0a66c2] hover:border-[#0a66c2] transition hover:-translate-y-1 shadow-md" title="LinkedIn: aman-katiyar-1a2740329">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46V10.9M7.86 6.81a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/>
+                        </svg>
+                    </a>
+
+                    <!-- LeetCode -->
+                    <a href="https://leetcode.com/u/AmanKatiyar0018" target="_blank" rel="noopener noreferrer" 
+                       aria-label="LeetCode Profile"
+                       class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-amber-500 hover:border-amber-400 transition hover:-translate-y-1 shadow-md" title="LeetCode: AmanKatiyar0018">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.874 5.874 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.96 3.825c.348.034.698.034 1.049 0a5.952 5.952 0 0 0 3.39-1.637l3.655-3.656a1.38 1.38 0 0 0 .399-.974 1.353 1.353 0 0 0-1.353-1.354 1.37 1.37 0 0 0-.974.405l-3.65 3.655a3.17 3.17 0 0 1-2.26.98 3.23 3.23 0 0 1-2.26-.98 3.2 3.2 0 0 1-.94-2.27 3.2 3.2 0 0 1 .94-2.27l3.85-4.12 4.41-4.78a1.37 1.37 0 0 0-.96-2.355zM16.14 7.378a1.38 1.38 0 0 0-.98.41 1.35 1.35 0 0 0 0 1.93l3.52 3.52H9.86a1.36 1.36 0 1 0 0 2.72h8.82l-3.52 3.52a1.36 1.36 0 0 0 1.93 1.93l5.85-5.85a1.36 1.36 0 0 0 0-1.93l-5.85-5.85a1.38 1.38 0 0 0-.95-.4z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Copy Email Button -->
+                    <button id="copy-email-btn" aria-label="Copy Email" 
+                            class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition hover:-translate-y-1 shadow-md" title="Copy Email">
+                        <i data-lucide="copy" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Stats Grid (Populated dynamically) -->
+                <div id="hero-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                    <!-- Dynamic Stats -->
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             ABOUT ME SECTION
+             ================================================================= -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Background
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    About Me
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Software Development Intern at GHAckk Technology & MCA student at PSIT Kanpur (graduating in <span class="text-cyan-400 font-semibold">June 2026</span>).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Biography & Academic Journey -->
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="glass-panel p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold text-slate-100 mb-4 flex items-center gap-2">
+                            <i data-lucide="user-check" class="w-5 h-5 text-cyan-400"></i>
+                            <span>Software Development Intern & Backend Engineer</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            I am currently working as a <strong>Software Development Intern at GHAckk Technology</strong>, where I gain practical industry exposure 
+                            building software components, working with APIs and backend concepts, and leveraging AI-assisted developer tools alongside Git and GitHub.
+                        </p>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            In parallel, I am completing my <strong>Master of Computer Applications (MCA)</strong> at 
+                            <strong>Pranveer Singh Institute of Technology (PSIT), Kanpur</strong>, graduating in 
+                            <strong class="text-cyan-400">June 2026</strong>. Prior to MCA, I graduated with a 
+                            <strong>Bachelor of Science (B.Sc.)</strong> from CSJMU Kanpur with an academic distinction of <span class="text-cyan-400 font-semibold font-mono">81.51% aggregate</span>.
+                        </p>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            My technical portfolio highlights 4 real projects: <strong>Cloud-Based Dockerized AWS Deployment</strong>, 
+                            the <strong>ObscuraCRT Java Steganography Desktop Application</strong>, the <strong>Face Recognition Based Smart Attendance System</strong>, 
+                            and a <strong>Multi-Functional Calculator</strong>. Certified by <strong>Cisco Networking Academy</strong> in Networking Basics, 
+                            <strong>HackerRank</strong> in Java and SQL, and <strong>Infosys</strong> in DBMS and Python.
+                        </p>
+
+                        <!-- Quick Info Pills -->
+                        <div class="mt-8 pt-6 border-t border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                <span>Intern @ <strong class="text-cyan-300 font-semibold">GHAckk Technology</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i data-lucide="calendar" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                <span>MCA Completion: <strong class="text-cyan-300 font-semibold">June 2026</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i data-lucide="mail" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                <span class="font-mono">amankatiyar00891@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i data-lucide="phone" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                <span class="font-mono">+91 7355284202</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Key Technical Highlights -->
+                <div class="lg:col-span-5 space-y-4" id="about-highlights">
+                    <!-- Highlights rendered dynamically -->
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             INTERNSHIP & EXPERIENCE SECTION
+             ================================================================= -->
+        <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Industry Experience
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Internship Experience
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Hands-on software development internship working with application components, APIs, AI tools, and production workflows.
+                </p>
+            </div>
+
+            <!-- Experience Card Container (Rendered dynamically) -->
+            <div id="experience-container" class="max-w-4xl mx-auto">
+                <!-- Dynamic Experience -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             TECHNICAL SKILLS SECTION
+             ================================================================= -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Capabilities
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Technical Skills & Core Competencies
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Tools, languages, and technologies utilized across my internship, academic coursework, and practical projects.
+                </p>
+            </div>
+
+            <!-- Skills Grid (Rendered dynamically) -->
+            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic categories -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             FEATURED PROJECTS SECTION
+             ================================================================= -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Portfolio
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    My Verified Projects
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Real implementations from my GitHub covering Cloud Deployments, Computer Vision, Cryptography, and Software Logic.
+                </p>
+            </div>
+
+            <!-- Project Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel border border-slate-700 text-slate-300" data-filter="all">
+                    All Projects (4)
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel border border-slate-700 text-slate-300" data-filter="cloud">
+                    Cloud & AWS
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel border border-slate-700 text-slate-300" data-filter="python">
+                    Python & CV
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel border border-slate-700 text-slate-300" data-filter="java">
+                    Java & Security
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel border border-slate-700 text-slate-300" data-filter="tools">
+                    Tools & Math
+                </button>
+            </div>
+
+            <!-- Projects Grid (Rendered dynamically) -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamic Projects -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             VERIFIED CERTIFICATIONS SECTION
+             ================================================================= -->
+        <section id="certificates" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                    Credentials
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Verified Certifications
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Official credentials from Cisco Networking Academy, HackerRank, Infosys, and Mindluster.
+                </p>
+            </div>
+
+            <!-- Certificates Grid (Rendered dynamically) -->
+            <div id="certificates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Certificates with high-res thumbnails -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             EDUCATION & ACADEMICS SECTION
+             ================================================================= -->
+        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Academics
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Education & Degrees
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Academic qualifications from Pranveer Singh Institute of Technology and Chhatrapati Shahu Ji Maharaj University.
+                </p>
+            </div>
+
+            <!-- Education Timeline (Rendered dynamically) -->
+            <div id="education-timeline" class="max-w-3xl mx-auto">
+                <!-- Dynamic Timeline -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             CODING PROFILES & PROBLEM SOLVING SECTION
+             ================================================================= -->
+        <section id="coding" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Online Presence
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Coding Profiles & Networks
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Direct access to my code repositories, developer profiles, and professional network.
+                </p>
+            </div>
+
+            <!-- Coding Profiles Grid (Rendered dynamically) -->
+            <div id="coding-profiles-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Dynamic Profiles -->
+            </div>
+        </section>
+
+
+        <!-- =================================================================
+             CONTACT SECTION
+             ================================================================= -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                    Get In Touch
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-3 mb-4">
+                    Let's Connect & Collaborate
+                </h2>
+                <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base">
+                    Open for Software Engineering opportunities, Python Backend roles, and technical collaborations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Left: Direct Contact Information -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Email Card -->
+                    <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Email Address</div>
+                            <div class="text-sm font-mono font-bold text-slate-100 truncate mt-0.5">amankatiyar00891@gmail.com</div>
+                            <div class="mt-2 flex items-center gap-3">
+                                <a href="mailto:amankatiyar00891@gmail.com" class="text-xs text-cyan-400 hover:underline font-semibold flex items-center gap-1">
+                                    <span>Send Email</span>
+                                    <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                                </a>
+                                <button id="copy-email-btn-2" onclick="navigator.clipboard.writeText('amankatiyar00891@gmail.com'); showToast('Email copied!', 'check-circle')" 
+                                        class="text-xs text-slate-400 hover:text-slate-200">
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Phone Number</div>
+                            <div class="text-sm font-mono font-bold text-slate-100 truncate mt-0.5">+91 7355284202</div>
+                            <div class="mt-2 flex items-center gap-3">
+                                <a href="tel:+917355284202" class="text-xs text-indigo-400 hover:underline font-semibold flex items-center gap-1">
+                                    <span>Call Directly</span>
+                                    <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                                </a>
+                                <button onclick="navigator.clipboard.writeText('+917355284202'); showToast('Phone number copied!', 'phone')" 
+                                        class="text-xs text-slate-400 hover:text-slate-200">
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Location</div>
+                            <div class="text-sm font-bold text-slate-100 mt-0.5">Kanpur, Uttar Pradesh, India</div>
+                            <div class="text-xs text-slate-400 mt-1">Open to relocate across India for full-time & internship roles</div>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Card with Visible SVG -->
+                    <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-[#0a66c2] shrink-0">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46V10.9M7.86 6.81a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">LinkedIn Profile</div>
+                            <div class="text-sm font-mono font-bold text-slate-100 truncate mt-0.5">aman-katiyar-1a2740329</div>
+                            <a href="https://linkedin.com/in/aman-katiyar-1a2740329" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-1 text-xs text-cyan-400 hover:underline font-semibold mt-2">
+                                <span>Connect on LinkedIn</span>
+                                <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Interactive Message Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-panel p-8 rounded-3xl space-y-5">
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">Send a Message</h3>
+                        <p class="text-xs text-slate-400 mb-6">Reach out regarding opportunities or questions. Launches directly in your email client.</p>
+
+                        <div>
+                            <label for="contact-name" class="block text-xs font-medium text-slate-300 mb-2">Your Name</label>
+                            <input type="text" id="contact-name" required placeholder="e.g. Recruiter Name"
+                                   class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition" />
+                        </div>
+
+                        <div>
+                            <label for="contact-email" class="block text-xs font-medium text-slate-300 mb-2">Your Email</label>
+                            <input type="email" id="contact-email" required placeholder="e.g. hr@company.com"
+                                   class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition" />
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-xs font-medium text-slate-300 mb-2">Message</label>
+                            <textarea id="contact-message" rows="4" required placeholder="Describe the opportunity or project..."
+                                      class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/20 transition hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-sm">
+                    AK
+                </span>
+                <p class="text-xs text-slate-400">
+                    <strong class="text-slate-200">Aman Katiyar Portfolio</strong> — Software Development Intern @ GHAckk Technology • MCA '26 PSIT Kanpur
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <a href="#hero" class="hover:text-cyan-400 transition">Back to Top ↑</a>
+                <a href="https://github.com/Aman-katiyar0018" target="_blank" class="hover:text-cyan-400 transition">GitHub</a>
+                <a href="https://linkedin.com/in/aman-katiyar-1a2740329" target="_blank" class="hover:text-cyan-400 transition">LinkedIn</a>
+                <a href="https://leetcode.com/u/AmanKatiyar0018" target="_blank" class="hover:text-cyan-400 transition">LeetCode</a>
+                <a href="assets/Aman_Katiyar_Resume.pdf" download="Aman_Katiyar_Resume.pdf" class="hover:text-cyan-400 transition">Resume PDF</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =================================================================
+         CERTIFICATE LIGHTBOX MODAL
+         ================================================================= -->
+    <div id="cert-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-cert-title">
+        <div class="modal-content-box p-6 sm:p-8 relative">
+            
+            <!-- Close Button -->
+            <button id="cert-modal-close" aria-label="Close Modal" 
+                    class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mt-2">
+                <!-- Certificate Preview Image -->
+                <div class="lg:col-span-7 bg-slate-950 p-3 rounded-2xl border border-slate-800 flex items-center justify-center">
+                    <img id="modal-cert-img" src="" alt="Certificate Preview" class="max-h-[60vh] max-w-full object-contain rounded-lg shadow-2xl" />
+                </div>
+
+                <!-- Certificate Metadata & Actions -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+                    <div>
+                        <div class="text-xs font-mono font-bold uppercase text-cyan-400 tracking-wider mb-1" id="modal-cert-issuer">
+                            Issuer
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-100 leading-snug mb-3" id="modal-cert-title">
+                            Certificate Title
+                        </h3>
+
+                        <div class="space-y-2 text-xs font-mono text-slate-300 bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 mb-4">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Date Issued:</span>
+                                <span class="text-cyan-300 font-semibold" id="modal-cert-date">Date</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Credential ID:</span>
+                                <span class="text-slate-200 font-semibold truncate max-w-[200px]" id="modal-cert-id">ID</span>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4" id="modal-cert-desc">
+                            Description
+                        </p>
+
+                        <div class="text-xs font-semibold text-slate-400 mb-2">Key Competencies Covered:</div>
+                        <div class="flex flex-wrap gap-2 mb-6" id="modal-cert-topics">
+                            <!-- Topic Pills -->
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <a id="modal-cert-pdf-link" href="" target="_blank" download
+                           class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-xs shadow-md shadow-cyan-500/20 transition">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            <span>Download Original PDF</span>
+                        </a>
+                        <button onclick="closeCertModal()" 
+                                class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
